@@ -252,6 +252,8 @@ class DelegateParameter(Parameter):
 
     @property
     def settable(self) -> bool:
+        if self._settable is False:
+            return False
         if self.source is None:
             return False
         return self.source.settable
